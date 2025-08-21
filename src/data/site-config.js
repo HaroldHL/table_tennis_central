@@ -151,7 +151,7 @@ export const siteConfig = {
   },
 
   contact: {
-    address: "123 Champions Way, Sports District, Sydney NSW 2000",
+    address: "123 Champions Way, Sydney Olympic Park NSW 2127, Australia",
     phone: "(02) 9XXX-PING",
     email: "info@tabletenniscentral.com.au",
     hours: {
@@ -162,14 +162,22 @@ export const siteConfig = {
     location: {
       lat: -33.8688,
       lng: 151.2093
+    },
+    parking: {
+      available: true,
+      details: "Free 2-hour street parking available. Secure underground parking $5/day."
+    },
+    publicTransport: {
+      train: "Olympic Park Station (5 min walk)",
+      bus: "Routes 401, 403, 407 stop nearby"
     }
   },
 
   social: {
-    facebook: "xxx",
-    instagram: "xxx", 
-    twitter: "xxx",
-    youtube: "xxx"
+    facebook: "https://facebook.com/tabletenniscentral",
+    instagram: "https://instagram.com/tabletenniscentral", 
+    twitter: "https://twitter.com/tabletenniscentral",
+    youtube: "https://youtube.com/tabletenniscentral"
   },
 
   seo: {

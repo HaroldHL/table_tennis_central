@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { siteConfig } from '@/data/site-config'
+import GoogleMaps from '@/components/GoogleMaps'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -260,18 +261,93 @@ export default function Contact() {
 
           {/* Map Section */}
           <div className="mt-16">
-            <div className="bg-gray-100 rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Find Us on the Map
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Located in the heart of Sydney's sports district, easily accessible by public transport and car.
-              </p>
-              <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <div className="text-4xl mb-2">🗺️</div>
-                  <p>Interactive map would be embedded here</p>
-                  <p className="text-sm">({siteConfig.contact.location.lat}, {siteConfig.contact.location.lng})</p>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                  Find Us on the Map
+                </h3>
+                <p className="text-gray-600 mb-6 text-center">
+                  Located in the heart of Sydney's sports district, easily accessible by public transport and car.
+                </p>
+              </div>
+              
+              {/* Google Maps Embed */}
+              <div className="relative">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.2676677532546!2d151.20599831521343!3d-33.868830680653285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae665e892fdd%3A0x3133f8d75a1ac251!2sSydney%20Olympic%20Park%20NSW%2C%20Australia!5e0!3m2!1sen!2sau!4v1629798654321!5m2!1sen!2sau"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                ></iframe>
+                
+                {/* Map Overlay with Actions */}
+                <div className="absolute top-4 left-4 right-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-semibold text-gray-800">Table Tennis Central</h4>
+                        <p className="text-sm text-gray-600">{siteConfig.contact.address}</p>
+                      </div>
+                      <div className="flex space-x-2">
+                        <a
+                          href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(siteConfig.contact.address)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-1"
+                        >
+                          <span>🧭</span>
+                          <span>Directions</span>
+                        </a>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.contact.address)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-1"
+                        >
+                          <span>📍</span>
+                          <span>View Larger</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Transportation Info */}
+              <div className="p-8 bg-gray-50">
+                <h4 className="font-semibold text-gray-800 mb-4">Getting Here</h4>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-600 text-lg">🚗</span>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-1">By Car</h5>
+                      <p className="text-gray-600 text-sm">Free parking available. Located just off the main highway with easy access.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <span className="text-green-600 text-lg">🚊</span>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-1">Public Transport</h5>
+                      <p className="text-gray-600 text-sm">5-minute walk from Central Station. Multiple bus routes available.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <span className="text-purple-600 text-lg">🚲</span>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-1">Bike Friendly</h5>
+                      <p className="text-gray-600 text-sm">Secure bike parking and shower facilities available for cyclists.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

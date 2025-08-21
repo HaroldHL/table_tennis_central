@@ -1,4 +1,5 @@
 import { siteConfig } from '@/data/site-config'
+import GoogleMaps from '@/components/GoogleMaps'
 
 export default function About() {
   return (
@@ -112,6 +113,54 @@ export default function About() {
               <button className="btn-secondary">
                 Take a Tour
               </button>
+            </div>
+          </div>
+
+          {/* Location Section */}
+          <div className="mt-16">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    Visit Our Facility
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Located in Sydney's premier sports district, our facility is easily accessible 
+                    and designed with players in mind.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-primary-600 text-xl">📍</span>
+                      <span className="text-gray-700">{siteConfig.contact.address}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-primary-600 text-xl">🕒</span>
+                      <div>
+                        <div className="text-gray-700">Mon-Fri: {siteConfig.contact.hours.weekdays}</div>
+                        <div className="text-gray-700">Weekends: {siteConfig.contact.hours.weekends}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-primary-600 text-xl">🚗</span>
+                      <span className="text-gray-700">Free parking & public transport access</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <a
+                      href="/contact"
+                      className="btn-primary inline-block"
+                    >
+                      Get Directions
+                    </a>
+                  </div>
+                </div>
+                
+                <div>
+                  <GoogleMaps height={300} showActions={false} className="rounded-lg shadow-md" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
